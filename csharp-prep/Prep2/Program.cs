@@ -23,9 +23,19 @@ class Program
         {
             Console.WriteLine("C");
         }
-        else 
+        else
         {
             Console.WriteLine("F");
+        }
+
+        Console.WriteLine("");
+        if (grade >= 70)
+        {
+            Console.WriteLine("Congratulations, you passed the class!");
+        }
+        else
+        {
+            Console.WriteLine("Ups! It wasn't this time, keep pushing forward.");
         }
     }
 }
