@@ -37,7 +37,7 @@ class Program
                 largest = number;
             }
         }
-        
+
         Console.WriteLine("");
         Console.WriteLine($"The sum is: {sum}");
         Console.WriteLine($"The average is: {average}");
