@@ -1,75 +1,67 @@
-public abstract class Activity
-{
-    private string _name;
-    private string _description;
-    private int _duration;
-    private static Dictionary<string, int> _activityLog = new Dictionary<string, int>();
-
-    protected Activity(string name, string description)
+abstract class Activity
     {
-        _name = name;
-        _description = description;
-    }
+        protected string _name;
+        protected string _description;
+        protected int _duration;
+        protected int _timesPerformed;
 
-    public void DisplayStartingMessage()
-    {
-        Console.WriteLine($"Starting {_name}...");
-        Console.WriteLine(_description);
-        Console.Write("Enter the duration in seconds: ");
-        _duration = int.Parse(Console.ReadLine());
-        Console.WriteLine("Prepare to begin...");
-        ShowSpinner(3);
-    }
-
-    public void DisplayEndingMessage()
-    {
-        Console.WriteLine("Good job!");
-        Console.WriteLine($"You have completed {_name} for {_duration} seconds.");
-        ShowSpinner(3);
-        LogActivity();
-    }
-
-    public void ShowSpinner(int seconds)
-    {
-        for (int i = 0; i < seconds; i++)
+        protected Activity(string name, string description)
         {
-            Console.Write(".");
-            System.Threading.Thread.Sleep(1000);
+            _name = name;
+            _description = description;
+            _timesPerformed = 0;
         }
-        Console.WriteLine();
-    }
 
-    public void ShowCountDown(int seconds)
-    {
-        for (int i = seconds; i > 0; i--)
+        public void Run()
         {
-            Console.WriteLine(i);
-            System.Threading.Thread.Sleep(1000);
+            DisplayStartingMessage();
+            PerformActivity();
+            DisplayEndingMessage();
+            _timesPerformed++;
         }
-    }
 
-    private void LogActivity()
-    {
-        if (_activityLog.ContainsKey(_name))
+        protected void DisplayStartingMessage()
         {
-            _activityLog[_name]++;
-        }
-        else
-        {
-            _activityLog[_name] = 1;
-        }
-    }
+            Console.Clear();
+            Console.WriteLine($"Starting: {_name}");
+            Console.WriteLine(_description);
+            Console.Write("Enter duration (in seconds): ");
+            _duration = int.Parse(Console.ReadLine());
 
-    public static void DisplayActivityLog()
-    {
-        Console.WriteLine("Activity Log:");
-        foreach (var entry in _activityLog)
+            Console.WriteLine("Prepare to begin...");
+            ShowSpinner(3);
+        }
+
+        protected void DisplayEndingMessage()
         {
-            Console.WriteLine($"{entry.Key}: {entry.Value} times");
+            Console.WriteLine("Good job!");
+            Console.WriteLine($"You completed the {_name} for {_duration} seconds.");
+            ShowSpinner(3);
+        }
+
+        protected void ShowSpinner(int seconds)
+        {
+            for (int i = 0; i < seconds; i++)
+            {
+                Console.Write(".");
+                Thread.Sleep(1000);
+            }
+            Console.WriteLine();
+        }
+
+        protected void ShowCountdown(int seconds)
+        {
+            for (int i = seconds; i > 0; i--)
+            {
+                Console.WriteLine(i);
+                Thread.Sleep(1000);
+            }
+        }
+
+        protected abstract void PerformActivity();
+
+        public int GetTimesPerformed()
+        {
+            return _timesPerformed;
         }
     }
-
-    public abstract void Run();
-}
-
-
