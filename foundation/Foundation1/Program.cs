@@ -6,21 +6,21 @@ class Program
     {
         List<Video> videos = new List<Video>();
 
-        Video video1 = new Video("Introduction to C#", "John Doe", 300);
-        video1.AddComment(new Comment("Alice", "Great video!"));
-        video1.AddComment(new Comment("Bob", "Very informative."));
-        video1.AddComment(new Comment("Charlie", "Thanks for sharing!"));
+        Video video1 = new Video("Introduction to C#", "Isaiah Palaco", 300);
+        video1.AddComment(new Comment("Alberto", "Great video!"));
+        video1.AddComment(new Comment("Ajape", "Very informative."));
+        video1.AddComment(new Comment("Filomena", "Thanks for sharing!"));
         videos.Add(video1);
 
-        Video video2 = new Video("Advanced C# Techniques", "Jane Smith", 600);
-        video2.AddComment(new Comment("Dave", "Amazing content."));
-        video2.AddComment(new Comment("Eve", "Really helpful examples."));
+        Video video2 = new Video("Advanced C# Techniques", "Stella Xavier", 600);
+        video2.AddComment(new Comment("Tina", "Amazing content."));
+        video2.AddComment(new Comment("Lucas", "Really helpful examples."));
         videos.Add(video2);
 
-        Video video3 = new Video("C# Design Patterns", "Michael Brown", 450);
-        video3.AddComment(new Comment("Frank", "Loved the explanation!"));
-        video3.AddComment(new Comment("Grace", "Very clear and concise."));
-        video3.AddComment(new Comment("Hank", "Please make more videos."));
+        Video video3 = new Video("C# Design Patterns", "Chris Brown", 450);
+        video3.AddComment(new Comment("Rihana", "Loved the explanation!"));
+        video3.AddComment(new Comment("Karueche", "Very clear and concise."));
+        video3.AddComment(new Comment("Lisa", "Please make more videos."));
         videos.Add(video3);
 
         foreach (var video in videos)
