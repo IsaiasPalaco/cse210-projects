@@ -1,16 +1,16 @@
 class Swimming : Activity
 {
-    private int laps;
+    private int _laps;
 
     public Swimming(string date, int durationMinutes, int laps)
         : base(date, durationMinutes)
     {
-        this.laps = laps;
+        _laps = laps;
     }
 
     public override double GetDistance()
     {
-        return (laps * 50) / 1000.0;
+        return (_laps * 50) / 1000.0;
     }
 
     public override double GetSpeed()
@@ -23,6 +23,7 @@ class Swimming : Activity
         return DurationMinutes / GetDistance();
     }
 }
+
 
 
 

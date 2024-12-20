@@ -1,16 +1,16 @@
 class Running : Activity
 {
-    private double distanceKm;
+    private double _distanceKm;
 
     public Running(string date, int durationMinutes, double distanceKm)
         : base(date, durationMinutes)
     {
-        this.distanceKm = distanceKm;
+        _distanceKm = distanceKm;
     }
 
     public override double GetDistance()
     {
-        return distanceKm;
+        return _distanceKm;
     }
 
     public override double GetSpeed()
@@ -23,4 +23,5 @@ class Running : Activity
         return DurationMinutes / GetDistance();
     }
 }
+
 
